@@ -1,0 +1,204 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0 126068  5876 ?        Ss   11:27   0:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 21
+root         2  0.0  0.0      0     0 ?        S    11:27   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    11:27   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/0:0H]
+root         7  0.9  0.0      0     0 ?        S    11:27   1:05 [rcu_sched]
+root         8  0.0  0.0      0     0 ?        S    11:27   0:00 [rcu_bh]
+root         9  0.6  0.0      0     0 ?        S    11:27   0:49 [rcuos/0]
+root        10  0.0  0.0      0     0 ?        S    11:27   0:00 [rcuob/0]
+root        11  0.0  0.0      0     0 ?        S    11:27   0:00 [migration/0]
+root        12  0.0  0.0      0     0 ?        S    11:27   0:00 [watchdog/0]
+root        13  0.0  0.0      0     0 ?        S    11:27   0:00 [watchdog/1]
+root        14  0.0  0.0      0     0 ?        S    11:27   0:00 [migration/1]
+root        15  0.0  0.0      0     0 ?        S    11:27   0:00 [ksoftirqd/1]
+root        17  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/1:0H]
+root        18  0.2  0.0      0     0 ?        S    11:27   0:17 [rcuos/1]
+root        19  0.0  0.0      0     0 ?        S    11:27   0:00 [rcuob/1]
+root        20  0.0  0.0      0     0 ?        S    11:27   0:00 [watchdog/2]
+root        21  0.0  0.0      0     0 ?        S    11:27   0:00 [migration/2]
+root        22  0.0  0.0      0     0 ?        S    11:27   0:01 [ksoftirqd/2]
+root        24  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/2:0H]
+root        25  0.5  0.0      0     0 ?        S    11:27   0:36 [rcuos/2]
+root        26  0.0  0.0      0     0 ?        S    11:27   0:00 [rcuob/2]
+root        27  0.0  0.0      0     0 ?        S    11:27   0:00 [watchdog/3]
+root        28  0.0  0.0      0     0 ?        S    11:27   0:00 [migration/3]
+root        29  0.0  0.0      0     0 ?        S    11:27   0:01 [ksoftirqd/3]
+root        31  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/3:0H]
+root        32  0.3  0.0      0     0 ?        S    11:27   0:22 [rcuos/3]
+root        33  0.0  0.0      0     0 ?        S    11:27   0:00 [rcuob/3]
+root        34  0.0  0.0      0     0 ?        S    11:27   0:00 [kdevtmpfs]
+root        35  0.0  0.0      0     0 ?        S<   11:27   0:00 [netns]
+root        36  0.0  0.0      0     0 ?        S<   11:27   0:00 [perf]
+root        37  0.0  0.0      0     0 ?        S<   11:27   0:00 [writeback]
+root        38  0.0  0.0      0     0 ?        SN   11:27   0:00 [ksmd]
+root        39  0.0  0.0      0     0 ?        SN   11:27   0:00 [khugepaged]
+root        40  0.0  0.0      0     0 ?        S<   11:27   0:00 [crypto]
+root        41  0.0  0.0      0     0 ?        S<   11:27   0:00 [kintegrityd]
+root        42  0.0  0.0      0     0 ?        S<   11:27   0:00 [bioset]
+root        43  0.0  0.0      0     0 ?        S<   11:27   0:00 [kblockd]
+root        44  0.0  0.0      0     0 ?        S<   11:27   0:00 [ata_sff]
+root        45  0.0  0.0      0     0 ?        S<   11:27   0:00 [md]
+root        46  0.0  0.0      0     0 ?        S<   11:27   0:00 [devfreq_wq]
+root        52  0.0  0.0      0     0 ?        S    11:27   0:00 [kswapd0]
+root        53  0.0  0.0      0     0 ?        S    11:27   0:00 [fsnotify_mark]
+root        94  0.0  0.0      0     0 ?        S<   11:27   0:00 [kthrotld]
+root        95  0.0  0.0      0     0 ?        S<   11:27   0:00 [acpi_thermal_pm]
+root        96  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_0]
+root        97  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_0]
+root        98  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_1]
+root        99  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_1]
+root       100  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_2]
+root       101  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_2]
+root       102  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_3]
+root       103  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_3]
+root       104  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_4]
+root       105  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_4]
+root       106  0.0  0.0      0     0 ?        S    11:27   0:00 [scsi_eh_5]
+root       107  0.0  0.0      0     0 ?        S<   11:27   0:00 [scsi_tmf_5]
+root       112  0.0  0.0      0     0 ?        S    11:27   0:00 [kworker/u16:6]
+root       113  0.0  0.0      0     0 ?        S<   11:27   0:00 [kpsmoused]
+root       114  0.0  0.0      0     0 ?        S<   11:27   0:00 [dm_bufio_cache]
+root       115  0.0  0.0      0     0 ?        S<   11:27   0:00 [ipv6_addrconf]
+root       147  0.0  0.0      0     0 ?        S<   11:27   0:00 [deferwq]
+root       150  0.0  0.0      0     0 ?        S<   11:27   0:00 [bioset]
+root       187  0.0  0.0      0     0 ?        S    11:27   0:00 [kauditd]
+root       341  0.0  0.0      0     0 ?        S    11:27   0:00 [irq/19-mmc0]
+root       344  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/0:1H]
+root       351  0.0  0.0      0     0 ?        S<   11:27   0:00 [ttm_swap]
+root       352  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/3:1H]
+root       371  0.0  0.0      0     0 ?        S    11:27   0:00 [jbd2/sda6-8]
+root       372  0.0  0.0      0     0 ?        S<   11:27   0:00 [ext4-rsv-conver]
+root       427  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/1:1H]
+root       449  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/2:1H]
+root       454  0.0  0.2  53884 16760 ?        Ss   11:27   0:00 /usr/lib/systemd/systemd-journald
+root       477  0.0  0.0 118552  2836 ?        Ss   11:27   0:00 /usr/sbin/lvmetad -f
+root       483  0.0  0.0      0     0 ?        S<   11:27   0:00 [rpciod]
+root       487  0.0  0.0  43976  4068 ?        Ss   11:27   0:00 /usr/lib/systemd/systemd-udevd
+root       510  0.0  0.0      0     0 ?        S<   11:27   0:00 [edac-poller]
+root       522  0.0  0.0      0     0 ?        S    11:27   0:00 [irq/34-mei_me]
+root       591  0.0  0.0      0     0 ?        S<   11:27   0:00 [kvm-irqfd-clean]
+root       648  0.0  0.0      0     0 ?        S<   11:27   0:00 [cfg80211]
+root       684  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/u17:0]
+root       685  0.0  0.0      0     0 ?        S<   11:27   0:00 [hci0]
+root       686  0.0  0.0      0     0 ?        S<   11:27   0:00 [hci0]
+root       687  0.0  0.0      0     0 ?        S<   11:27   0:00 [kworker/u17:1]
+root       697  0.0  0.0      0     0 ?        S    11:27   0:00 [jbd2/sda5-8]
+root       698  0.0  0.0      0     0 ?        S<   11:27   0:00 [ext4-rsv-conver]
+root       715  0.0  0.0      0     0 ?        S    11:27   0:00 [jbd2/sda8-8]
+root       716  0.0  0.0      0     0 ?        S<   11:27   0:00 [ext4-rsv-conver]
+root       755  0.0  0.0  49076  3260 ?        S<sl 11:27   0:00 /sbin/auditd -n
+root       765  0.0  0.0  16792  2572 ?        SNs  11:27   0:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PATH=/etc/alsa/alsactl.conf --initfile=/lib/alsa/init/00main rdaemon
+root       766  0.0  0.1 473448 13484 ?        Ssl  11:27   0:00 /usr/sbin/NetworkManager --no-daemon
+root       767  0.0  0.1 358924  8488 ?        Ssl  11:27   0:00 /usr/sbin/abrtd -d -s
+root       776  0.0  0.5 1548064 47436 ?       Ssl  11:27   0:00 /usr/sbin/rsyslogd -n
+rtkit      777  0.0  0.0 164644  2344 ?        SNsl 11:27   0:00 /usr/libexec/rtkit-daemon
+root       785  0.0  0.0  24988  4156 ?        Ss   11:27   0:00 /usr/sbin/smartd -n -q never
+root       787  0.0  0.0  17208  2532 ?        Ss   11:27   0:00 /usr/sbin/irqbalance --foreground
+dbus       790  0.0  0.0  74056  5784 ?        Ss   11:27   0:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+root       796  0.0  0.0  80232  1664 ?        S<sl 11:27   0:00 /sbin/audispd
+root       799  0.0  0.0  21996  1992 ?        S<   11:27   0:00 /usr/sbin/sedispatch
+root       802  0.0  0.0 203372  3280 ?        Ssl  11:27   0:00 /usr/sbin/gssproxy -D
+root       821  0.0  0.0 262676  7292 ?        Ss   11:27   0:01 /usr/sbin/sssd -D -f
+root       825  0.0  0.1 293656 13024 ?        S    11:27   0:01 /usr/libexec/sssd/sssd_be --domain default --uid 0 --gid 0 --debug-to-files
+root       826  0.0  0.4 268536 33936 ?        S    11:27   0:00 /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --debug-to-files
+root       827  0.0  0.0 245944  7348 ?        S    11:27   0:00 /usr/libexec/sssd/sssd_pam --uid 0 --gid 0 --debug-to-files
+root       828  0.0  0.0 241496  5900 ?        S    11:27   0:00 /usr/libexec/sssd/sssd_autofs --uid 0 --gid 0 --debug-to-files
+root       836  0.0  0.4 1563140 36896 ?       Ss   11:27   0:00 /usr/bin/abrt-dump-journal-oops -fxtD
+root       840  0.0  0.0   4380  1368 ?        Ss   11:27   0:05 /sbin/rngd -f
+root       841  0.0  0.0  39784  4636 ?        Ss   11:27   0:00 /usr/libexec/bluetooth/bluetoothd
+root       844  0.0  0.0 211156  8088 ?        Ss   11:27   0:00 /usr/bin/abrt-watch-log -F Backtrace /var/log/Xorg.0.log -- /usr/bin/abrt-dump-xorg -xD
+root       846  0.0  0.0   6504  1796 ?        Ss   11:27   0:00 /usr/sbin/mcelog --ignorenodev --daemon --foreground
+root       850  0.0  0.1 409016  8848 ?        Ssl  11:27   0:01 /usr/libexec/accounts-daemon
+root       851  0.0  0.0  34636  3228 ?        Ss   11:27   0:00 /usr/lib/systemd/systemd-logind
+chrony     856  0.0  0.0 113816  3776 ?        S    11:27   0:00 /usr/sbin/chronyd
+root       867  0.0  0.0 129632  6584 ?        Ss   11:27   0:00 /var/cfengine/bin/cf-execd
+root       882  0.0  0.0      0     0 ?        S<   11:27   0:00 [iprt-VBoxWQueue]
+root       883  0.0  0.0      0     0 ?        S    11:27   0:00 [iprt-VBoxTscThr]
+root       900  0.0  0.0  65464  7220 ?        Ss   11:27   0:00 /var/cfengine/bin/cf-serverd
+polkitd    925  0.0  0.1 557184 15480 ?        Ssl  11:27   0:00 /usr/lib/polkit-1/polkitd --no-debug
+root       926  0.0  0.1  65632  9540 ?        Ss   11:27   0:02 /var/cfengine/bin/cf-monitord
+root       938  0.0  0.2 120600 19964 ?        S    11:27   0:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-enp3s0f0.pid -lf /var/lib/NetworkManager/dhclient-532dce5a-4d55-4222-afcf-36a27332b41e-enp3s0f0.lease -cf /var/lib/NetworkManager/dhclient-enp3s0f0.conf enp3s0f0
+root      1187  0.0  0.0  80968  6204 ?        Ss   11:27   0:00 /usr/sbin/sshd -D
+root      1192  0.0  0.0 375760  5888 ?        Ssl  11:27   0:00 /usr/sbin/automount --pid-file /run/autofs.pid
+root      1195  0.0  0.0 125788  3060 ?        Ss   11:27   0:00 /usr/sbin/crond -n
+root      1197  0.0  0.0  23808  2128 ?        Ss   11:27   0:00 /usr/sbin/atd -f
+root      1201  0.0  0.0 282884  6684 ?        SLsl 11:27   0:00 /usr/sbin/lightdm
+lightdm   1225  0.0  0.0  45140  4972 ?        Ss   11:27   0:00 /usr/lib/systemd/systemd --user
+lightdm   1226  0.0  0.0  93948  2016 ?        S    11:27   0:00 (sd-pam)
+rpcuser   1249  0.0  0.0  46648  3736 ?        Ss   11:27   0:00 /usr/sbin/rpc.statd --no-notify
+rpc       1251  0.0  0.0  65520  3788 ?        Ss   11:27   0:00 /sbin/rpcbind -w
+root      1255  0.0  0.0      0     0 ?        S<   11:27   0:00 [nfsiod]
+root      1258  0.0  0.0      0     0 ?        S    11:27   0:00 [lockd]
+root      1281  0.0  0.0 2109576 7012 ?        Ssl  11:30   0:00 /usr/sbin/console-kit-daemon --no-daemon
+root      1545  0.0  0.1 439732 11024 ?        Ssl  11:30   0:00 /usr/libexec/upowerd
+root      1585  0.0  0.1 447512  8520 ?        Ssl  11:30   0:01 /usr/libexec/udisks2/udisksd --no-debug
+root      1646  0.0  0.1 223492  8868 ?        Ss   11:30   0:00 /usr/sbin/cupsd -l
+root      1648  0.0  0.0      0     0 ?        S<   11:30   0:00 [krfcommd]
+root      2745  1.8  1.6 461612 134252 tty1    Ss+  12:19   1:12 /usr/libexec/Xorg -background none :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt1 -novtswitch
+lightdm   2758  0.0  0.0  16068  1516 ?        S    12:19   0:00 dbus-launch --autolaunch=9b398f958e8e4547aabe1333ca2ae38f --binary-syntax --close-stderr
+lightdm   2759  0.0  0.0  64328  2088 ?        Ss   12:19   0:00 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+root      2841  0.0  0.1 223120  8968 ?        Sl   12:28   0:00 lightdm --session-child 13 22
+jiayang   2849  0.0  0.0 240416  6480 ?        Sl   12:28   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+jiayang   2851  0.0  0.0  55432  5168 ?        Ss   12:28   0:00 /usr/lib/systemd/systemd --user
+jiayang   2852  0.0  0.0 184088  2052 ?        S    12:28   0:00 (sd-pam)
+jiayang   2854  0.0  0.2 561328 20416 ?        Ssl  12:28   0:00 cinnamon-session --session cinnamon
+jiayang   2863  0.0  0.0  28660  1812 ?        S    12:28   0:00 dbus-launch --sh-syntax --exit-with-session
+jiayang   2864  0.0  0.0  72956  2636 ?        Ss   12:28   0:00 /usr/bin/dbus-daemon --fork --print-pid 6 --print-address 8 --session
+jiayang   2930  0.0  0.0 410972  8056 ?        Sl   12:28   0:00 /usr/libexec/imsettings-daemon
+jiayang   2933  0.0  0.0 320536  6984 ?        Sl   12:28   0:00 /usr/libexec/gvfsd
+jiayang   2937  0.0  0.0 370956  6864 ?        Sl   12:28   0:00 /usr/libexec/gvfsd-fuse /run/user/34454/gvfs -f -o big_writes
+jiayang   2995  0.0  0.0  53444   576 ?        Ss   12:28   0:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "cinnamon-session-cinnamon"
+jiayang   3026  0.0  0.0 262220  5700 ?        Sl   12:28   0:00 /usr/libexec/at-spi-bus-launcher
+jiayang   3029  0.0  0.0  72672  4464 ?        S    12:28   0:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --print-address 3
+jiayang   3032  0.0  0.0 125548  5084 ?        Sl   12:28   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+jiayang   3043  0.0  0.6 1148848 51928 ?       Sl   12:28   0:01 /usr/libexec/cinnamon-settings-daemon
+jiayang   3053  0.0  0.1 422616  8332 ?        Sl   12:28   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+jiayang   3058  0.0  0.0 323940  6784 ?        Sl   12:28   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+jiayang   3062  0.0  0.0 333160  7244 ?        Sl   12:28   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+jiayang   3066  0.0  0.1 435824  9644 ?        Sl   12:28   0:00 /usr/libexec/gvfs-afc-volume-monitor
+jiayang   3072  0.0  0.3 412324 28628 ?        Sl   12:28   0:00 /usr/bin/python2 /usr/bin/cinnamon-launcher
+jiayang   3076  0.0  0.1 628420 11292 ?        S<l  12:28   0:00 /usr/bin/pulseaudio --start --log-target=syslog
+jiayang   3080  3.2  2.9 1657172 238620 ?      Sl   12:28   1:49 cinnamon --replace
+jiayang   3086  0.1  0.2 367108 18184 ?        Sl   12:28   0:06 clipit
+jiayang   3089  0.0  0.3 506064 27740 ?        Sl   12:28   0:00 nm-applet
+jiayang   3092  0.0  0.2 508748 21564 ?        Sl   12:28   0:00 abrt-applet
+jiayang   3096  0.1  0.6 1091512 50212 ?       Sl   12:28   0:05 nemo -n
+jiayang   3103  0.0  0.1 374052 13708 ?        Ssl  12:28   0:00 xfce4-power-manager
+jiayang   3109  0.0  0.3 418964 29156 ?        Sl   12:28   0:00 /usr/bin/python2 /bin/cinnamon-killer-daemon
+jiayang   3123  0.0  0.2 386836 18700 ?        Sl   12:28   0:00 /usr/libexec/polkit-gnome-authentication-agent-1
+jiayang   3142  0.0  0.0  37652  4192 ?        S    12:28   0:00 /usr/lib64/xfce4/xfconf/xfconfd
+jiayang   3160  0.0  0.0 178720  4840 ?        Sl   12:28   0:00 /usr/libexec/dconf-service
+jiayang   3187  0.0  0.0 483336  7532 ?        Sl   12:28   0:00 /usr/libexec/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/exec_spaw/0
+jiayang   3229  0.0  0.0 250432  7040 ?        Sl   12:28   0:00 /usr/libexec/gvfsd-metadata
+jiayang   3281  0.0  0.1 555052 13020 ?        Sl   12:28   0:00 /usr/libexec/csd-printer
+jiayang   3338  0.0  0.2 548332 20208 ?        Sl   12:28   0:00 cinnamon-screensaver
+root      3655  0.0  0.0      0     0 ?        S    12:35   0:00 [kworker/u16:1]
+jiayang   3670  0.1  1.3 2958620 110736 ?      Sl   12:37   0:04 atril /home/cshome/j/jiayang/344lab07.pdf
+jiayang   3679  0.0  0.0 181532  2860 ?        Sl   12:37   0:00 /usr/libexec/atrild
+jiayang   3683  0.0  0.1 279620 13212 ?        S    12:37   0:00 /usr/libexec/mate-settings-daemon
+jiayang   3685  0.0  0.1 540144 15980 ?        Sl   12:37   0:00 /usr/bin/mate-screensaver --no-daemon
+root      3695  0.0  0.0      0     0 ?        S    12:37   0:00 [kworker/0:2]
+root      3780  0.0  0.0      0     0 ?        S    12:38   0:00 [kworker/1:0]
+jiayang   3783  0.0  0.2 359016 20272 ?        Sl   12:38   0:02 lxterminal
+jiayang   3786  0.0  0.0  22992  1964 ?        S    12:38   0:00 gnome-pty-helper
+jiayang   3787  0.0  0.0 129684  3880 pts/0    Ss   12:38   0:00 /bin/bash
+jiayang   3800  0.0  0.0 129684  3980 pts/1    Ss   12:38   0:00 /bin/bash
+jiayang   3814  0.5  1.9 3007436 156412 ?      Sl   12:39   0:15 atril /home/cshome/j/jiayang/344lect10.pdf
+jiayang   3858  0.0  0.0 118448  2348 pts/0    S+   12:40   0:00 /usr/bin/rlwrap /oracle/ora112g/cosc344/orahome/bin/sqlplus
+jiayang   3859  0.0  0.2  85724 21272 pts/2    Ss+  12:40   0:00 /oracle/ora112g/cosc344/orahome/bin/sqlplus
+jiayang   3904  0.5  0.3 918604 30512 ?        Ssl  12:41   0:15 gvim company_trigger.sql
+root      4071  0.0  0.0      0     0 ?        S    12:53   0:01 [kworker/1:2]
+root      4072  0.0  0.0      0     0 ?        S    12:53   0:00 [kworker/2:2]
+root      4260  0.0  0.0      0     0 ?        S    13:08   0:00 [kworker/0:1]
+root      4276  0.0  0.0      0     0 ?        S    13:08   0:00 [kworker/3:1]
+root      4281  0.0  0.0      0     0 ?        S    13:08   0:00 [kworker/2:0]
+root      4341  0.0  0.0      0     0 ?        S    13:17   0:00 [kworker/3:0]
+jiayang   4432  0.3  0.2 291616 19496 ?        S    13:22   0:00 links2 -g
+root      4513  0.0  0.0      0     0 ?        S    13:24   0:00 [kworker/3:2]
+root      4514  0.0  0.0  97004  3528 ?        Ss   13:24   0:00 sendmail: accepting connections
+root      4523  0.0  0.0      0     0 ?        S    13:24   0:00 [kworker/u16:0]
+root      4526  0.0  0.0      0     0 ?        S    13:24   0:00 [kworker/2:1]
+smmsp     4531  0.0  0.0  86200  3212 ?        Ss   13:24   0:00 sendmail: Queue runner@01:00:00 for /var/spool/clientmqueue
+root      4532  0.0  0.0      0     0 ?        S    13:24   0:00 [kworker/0:0]
+jiayang   4538  0.0  0.0 164532  4176 pts/1    R+   13:24   0:00 ps -aux

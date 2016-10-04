@@ -1,0 +1,194 @@
+/* pt1.pc
+ * Reads pass.dat and connects to Oracle.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sqlca.h>
+#include <sqlcpr.h>
+#include "getresponse.c"
+
+/* Constant definitions */
+
+#define USER_LEN   20
+#define PWD_LEN    20
+#define FNAME_LEN 20
+#define LNAME_LEN 20 
+/* Return codes for SQL */
+
+#define SUCCESS       0
+#define NOT_LOGGED_IN -1017
+#define NOT_FOUND     1403
+
+typedef struct employee_info* emp;
+ 
+#define MAX_UNIT 100
+struct employee_info{
+	char* fname[MAX_UNIT];
+	char* lname[MAX_UNIT];
+	int salary[MAX_UNIT];
+};
+/* Define host variables */
+
+EXEC SQL BEGIN DECLARE SECTION;
+	
+  varchar  username[USER_LEN];
+  varchar  password[PWD_LEN];
+  varchar  d_fname[FNAME_LEN];
+  varchar  d_lname[FNAME_LEN];
+  int      d_salary;  
+  int SQLCODE;
+  char SQLSTATE[6];
+EXEC SQL END DECLARE SECTION;
+
+/* Function prototypes */
+
+void connect_to_oracle (void);
+void sql_error (char *msg);
+
+extern void sqlglm( unsigned char*, size_t*, size_t* );
+
+void sort(emp dat, int index){
+	char* fname_tmp;
+	char* lname_tmp;
+        int i;
+	int salary_tmp;    
+		for(i =0;i<index;i++){
+		 salary_tmp = dat->salary[i];
+                 fname_tmp  = dat->fname[i] ;
+                 lname_tmp  = dat->lname[i] ;
+ 		 int j;
+                 for( j = i -1; j>=0 && salary_tmp < dat->salary[j]; j--){
+				dat->salary[j+1]=dat->salary[j];
+				dat->fname[j+1] =dat->fname[j];
+				dat->lname[j+1] =dat->lname[j];
+			}
+		 	
+		 dat->salary[j+1]=salary_tmp;
+		 dat->lname[j+1]=lname_tmp;
+		 dat->fname[j+1]=fname_tmp;
+		  
+		}    	
+			
+	}
+
+int main() {
+
+	emp dat=malloc(sizeof *dat);
+	int index=0;
+  	/* Connect to Oracle */
+
+	connect_to_oracle();
+
+        EXEC SQL DECLARE emp_cursor CURSOR FOR 
+	SELECT fname,lname,salary 
+	INTO :d_fname,:d_lname,:d_salary
+	FROM employee;
+
+ 	if (SUCCESS == sqlca.sqlcode) {
+
+    	EXEC SQL OPEN emp_cursor;
+ 	
+	EXEC SQL WHENEVER NOT FOUND DO break;
+   	while (1) 
+   	{ 
+      		EXEC SQL 
+		FETCH emp_cursor INTO :d_fname,:d_lname,:d_salary;
+		
+		d_fname.arr[d_fname.len] = '\0';
+		d_lname.arr[d_lname.len] = '\0';
+		
+		dat->fname[index] = malloc(sizeof(char[FNAME_LEN]));
+		dat->lname[index] = malloc(sizeof(char[LNAME_LEN]));
+
+		strcpy(dat->fname[index],d_fname.arr);
+		strcpy(dat->lname[index],d_lname.arr);
+		dat->salary[index] = d_salary;
+		index++;
+
+      		printf("%-20s %-20s %-10d \n",d_fname.arr,d_lname.arr,d_salary);
+   	} 	
+	
+	EXEC SQL CLOSE emp_cursor;
+	
+ } else {
+    sql_error("Error retrieving data");
+  }
+  /* Disconnect from ORACLE */
+  
+  EXEC SQL COMMIT WORK RELEASE;
+ 
+ 
+ sort(dat,index);
+ int i =0;	
+ while(i<index){
+	printf("%-20s %-20s %-10d \n",dat->fname[i],dat->lname[i],dat->salary[i]);
+	i++;
+	}
+  for(i=0;i<index;i++){
+	free(dat->fname[i]);
+	free(dat->lname[i]);
+	}
+  free(dat);
+  	
+  return(0);
+}
+
+void connect_to_oracle (void) {
+
+  FILE *passfile;
+
+  /* Open pass.dat.  If not successful, print
+   * an error messge and exit. 
+   */
+
+  if (0 == (passfile = fopen("pass.dat", "r"))) {
+    printf("Cannot open pass.dat\n");
+    printf("Program exiting\n");
+    exit(-1);
+  }
+
+  /* Read the data from the file
+   * and terminate the varchar strings.
+   */
+
+  getresponse((char *)username.arr, sizeof(username.arr), passfile);
+  username.len = strlen((char *) username.arr);
+  getresponse((char *)password.arr, sizeof(password.arr), passfile);
+  password.len = strlen((char *) password.arr);
+
+  /* Close the file. */
+
+  fclose(passfile);
+
+  printf("\nConnecting to ORACLE\n");
+
+  EXEC SQL CONNECT :username IDENTIFIED BY :password;
+
+  if (NOT_LOGGED_IN == sqlca.sqlcode) {
+    printf("  Not connected\n");
+    exit(-1);
+  } else if (SUCCESS == sqlca.sqlcode) {
+    printf("  Connected to ORACLE successfully\n");
+
+
+  } else {
+    sql_error("Error logging into Oracle");
+  }
+  return;
+}
+
+void sql_error (char *msg) {
+
+  char err_msg[200];
+  size_t buf_len, msg_len;
+
+  printf("\n%s\n", msg);
+  buf_len = sizeof(err_msg);
+  sqlglm(err_msg, &buf_len, &msg_len);
+  printf("%.*s\n", msg_len, err_msg);
+  EXEC SQL ROLLBACK RELEASE;
+  exit(1);
+}

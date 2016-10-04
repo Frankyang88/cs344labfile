@@ -1,0 +1,31 @@
+
+//user enter playerid and playername as usernamed &passwd login
+//if not exist in db ,create a new character if exist,retrieve from db
+
+
+//user pick up a quest, present with difficulty
+//retrieve the related area of quest, find the monster on that area 
+//user choose fight with monster in the mon list or escape from the fights(if escape lose gold)
+
+//fight: 
+// if win,git quested related weapon
+//if lose, bribe with gold, buy live or die(delete from db)
+
+special cases:
+//give consumable if someone login and destroy all consumable after he logout
+//some one could keep his consumable if he pay gold;
+
+//if monster is killed more than 10 times,monster die
+//if some areas are warfileds of boss and hero and the boss win, these areas are destroyed forever.boss move to another place
+
+
+//player have to sell weapon to earn money
+//
+//player can take one backpack every time,though he owns severl bags.
+//
+//backpack's size decide how many consumable potions & weapon he could take 
+
+//
+//
+//
+//

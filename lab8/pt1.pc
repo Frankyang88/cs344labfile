@@ -1,0 +1,106 @@
+/* pt1.pc
+ * Reads pass.dat and connects to Oracle.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sqlca.h>
+#include <sqlcpr.h>
+#include "getresponse.c"
+
+/* Constant definitions */
+
+#define USER_LEN   20
+#define PWD_LEN    20
+
+/* Return codes for SQL */
+
+#define SUCCESS       0
+#define NOT_LOGGED_IN -1017
+#define NOT_FOUND     1403
+
+/* Define host variables */
+
+EXEC SQL BEGIN DECLARE SECTION;
+
+  varchar  username[USER_LEN];
+  varchar  password[PWD_LEN];
+
+EXEC SQL END DECLARE SECTION;
+
+/* Function prototypes */
+
+void connect_to_oracle (void);
+void sql_error (char *msg);
+
+extern void sqlglm( unsigned char*, size_t*, size_t* );
+
+int main() {
+
+  /* Connect to Oracle */
+
+  connect_to_oracle();
+
+  /* Disconnect from ORACLE */
+
+  EXEC SQL COMMIT WORK RELEASE;
+
+  return(0);
+}
+
+void connect_to_oracle (void) {
+
+  FILE *passfile;
+
+  /* Open pass.dat.  If not successful, print
+   * an error messge and exit. 
+   */
+
+  if (0 == (passfile = fopen("pass.dat", "r"))) {
+    printf("Cannot open pass.dat\n");
+    printf("Program exiting\n");
+    exit(-1);
+  }
+
+  /* Read the data from the file
+   * and terminate the varchar strings.
+   */
+
+  getresponse((char *)username.arr, sizeof(username.arr), passfile);
+  username.len = strlen((char *) username.arr);
+  getresponse((char *)password.arr, sizeof(password.arr), passfile);
+  password.len = strlen((char *) password.arr);
+
+  /* Close the file. */
+
+  fclose(passfile);
+
+  printf("\nConnecting to ORACLE\n");
+
+  EXEC SQL CONNECT :username IDENTIFIED BY :password;
+
+  if (NOT_LOGGED_IN == sqlca.sqlcode) {
+    printf("  Not connected\n");
+    exit(-1);
+  } else if (SUCCESS == sqlca.sqlcode) {
+    printf("  Connected to ORACLE\n");
+  } else {
+    sql_error("Error logging into Oracle");
+  }
+  return;
+}
+
+void sql_error (char *msg) {
+
+  char err_msg[200];
+  size_t buf_len, msg_len;
+
+  printf("\n%s\n", msg);
+  buf_len = sizeof(err_msg);
+  sqlglm(err_msg, &buf_len, &msg_len);
+  printf("%.*s\n", msg_len, err_msg);
+  EXEC SQL ROLLBACK RELEASE;
+  exit(1);
+}

@@ -1,0 +1,10 @@
+insert into lab2a  values (1,7.1,'hello','23-OCT-2016');
+insert into lab2a  values (2,6.1,'hello','13-OCT-2016');
+insert into lab2a  values (3,5.2,'hello','01-OCT-2016');
+insert into lab2a  values (4,4.3,'hello','02-OCT-2016');
+insert into lab2a  values (5,3.4,'hello','03-OCT-2016');
+insert into lab2a  values (6,2.5,'hello','04-OCT-2016');
+insert into lab2a  values (7,1.6,'hello','05-OCT-2016');
+insert into lab2a  values (8,1.7,'hello','06-OCT-2016');
+insert into lab2a  values (9,1.8,'hello','08-OCT-2016');
+insert into lab2a  values (10,1.9,'hello','09-OCT-2016');

@@ -1,0 +1,161 @@
+/* upemp.pc
+ * Updates the salary field
+ * for a specified employee
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sqlca.h>
+
+#include "getresponse.c"
+
+/* Constant definitions */
+
+#define SSN_LEN    10
+#define FNAME_LEN  16
+#define LNAME_LEN  16
+
+#define USER_LEN   20
+#define PWD_LEN    20
+
+/* Return codes for SQL */
+
+#define SUCCESS       0
+#define NOT_LOGGED_IN -1017
+#define NOT_FOUND     1403
+
+/* Define host variables */
+
+EXEC SQL BEGIN DECLARE SECTION;
+
+  varchar  username[USER_LEN];
+  varchar  password[PWD_LEN];
+  char     h_ssn[SSN_LEN];
+  varchar  h_fname[FNAME_LEN];
+  varchar  h_lname[LNAME_LEN];
+  int   h_salary;
+
+EXEC SQL END DECLARE SECTION;
+
+char  buffer[20];
+
+/* Function prototypes */
+
+void connect_to_oracle (void);
+void sql_error (char *msg);
+
+int main() {
+
+  /* Connect to Oracle */
+
+  connect_to_oracle();
+
+  /* Get the ssn of the employee
+   * to be updated.
+  */
+
+  printf("\nWhich employee is to be updated?\n");
+  printf("   Enter a ssn: ");
+  getresponse(h_ssn, sizeof(h_ssn), stdin);
+
+  /* Get data from ORACLE and 
+   * output it.
+  */
+
+  EXEC SQL
+    SELECT fname, lname, salary
+      INTO :h_fname,:h_lname,:h_salary
+      FROM employee
+      WHERE ssn = :h_ssn;
+
+  if (SUCCESS == sqlca.sqlcode) {
+
+    h_fname.arr[h_fname.len] = '\0';
+    h_lname.arr[h_lname.len] = '\0';
+
+    printf("%-15s  %-15s  %-8d\n",
+	   h_fname.arr, h_lname.arr, h_salary);
+
+    printf("\nWhat is the new salary?: ");
+
+    getresponse(buffer, sizeof(buffer), stdin);
+    h_salary = atoi(buffer);
+
+    EXEC SQL
+      UPDATE employee
+        SET salary = :h_salary
+        WHERE ssn = :h_ssn;
+
+    if (SUCCESS == sqlca.sqlcode) {
+      EXEC SQL COMMIT;
+      printf("  Salary updated\n");
+    } else {
+      sql_error("Error updating salary");
+    }
+  } else {
+    sql_error("Error retrieving data");
+  }
+   
+  /* Disconnect from ORACLE */
+
+  EXEC SQL COMMIT WORK RELEASE;
+
+  return(0);
+}
+
+void connect_to_oracle (void) {
+
+  FILE *passfile;
+
+  /* Open pass.dat.  If not successful, print
+   * an error messge and exit. 
+   */
+
+  if (0 == (passfile = fopen("pass.dat", "r"))) {
+    printf("Cannot open pass.dat\n");
+    printf("Program exiting\n");
+    exit(-1);
+  }
+
+  /* Read the data from the file
+   * and terminate the varchar strings.
+   */
+
+  getresponse((char *)username.arr, sizeof(username.arr), passfile);
+  username.len = strlen((char *) username.arr);
+  getresponse((char *)password.arr, sizeof(password.arr), passfile);
+  password.len = strlen((char *) password.arr);
+
+  /* Close the file. */
+
+  fclose(passfile);
+
+  printf("\nConnecting to ORACLE\n");
+
+  EXEC SQL CONNECT :username IDENTIFIED BY :password;
+
+  if (NOT_LOGGED_IN == sqlca.sqlcode) {
+    printf("  Not connected\n");
+    exit(-1);
+  } else if (SUCCESS == sqlca.sqlcode) {
+    printf("  Connected to ORACLE\n");
+  } else {
+    sql_error("Error logging into Oracle");
+  }
+  return;
+}
+
+void sql_error (char *msg) {
+
+  char err_msg[200];
+  size_t buf_len, msg_len;
+
+  printf("\n%s\n", msg);
+  buf_len = sizeof(err_msg);
+  sqlglm(err_msg, &buf_len, &msg_len);
+  printf("%.*s\n", msg_len, err_msg);
+  EXEC SQL ROLLBACK RELEASE;
+  exit(1);
+}
